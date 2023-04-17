@@ -5,6 +5,7 @@ import NewAccount from "./components/NewAccount/NewAccount";
 import { ChatPage } from "./components/chatPage/ChatPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ProtectRoute from "./utils/ProtectRoute";
+
 function App() {
   return (
     <BrowserRouter>

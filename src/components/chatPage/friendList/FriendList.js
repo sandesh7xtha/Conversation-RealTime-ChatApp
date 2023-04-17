@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
 import styled from "styled-components";
-import { allUsersRoute } from "../../../utils/APIRoutes";
+import { allUsersRoute, config } from "../../../utils/APIRoutes";
 import axios from "axios";
 
 export const FriendList = ({ getValuefromFrnList }) => {

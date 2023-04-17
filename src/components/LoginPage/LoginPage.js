@@ -16,7 +16,7 @@ import * as Yup from "yup";
 import axios from "axios";
 import Alert from "../../customMaterial/alertCOMP/alert";
 import { useNavigate } from "react-router-dom";
-import { loginRoute } from "../../utils/APIRoutes";
+import { loginRoute, config } from "../../utils/APIRoutes";
 
 export const LoginPage = () => {
   const navigate = useNavigate();

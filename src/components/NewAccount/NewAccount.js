@@ -7,7 +7,7 @@ import * as Yup from "yup";
 import axios from "axios";
 import Alert from "../../customMaterial/alertCOMP/alert";
 import { useNavigate } from "react-router-dom";
-import { registerRoute } from "../../utils/APIRoutes";
+import { registerRoute, config } from "../../utils/APIRoutes";
 
 const NewAccount = () => {
   const navigate = useNavigate();
