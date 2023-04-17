@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Conversation-RealTime-ChatApp/static/css/main.073c9b0a.css",
-    "main.js": "/Conversation-RealTime-ChatApp/static/js/main.b73c0dfb.js",
+    "main.js": "/Conversation-RealTime-ChatApp/static/js/main.c3863590.js",
     "static/js/787.2ca72812.chunk.js": "/Conversation-RealTime-ChatApp/static/js/787.2ca72812.chunk.js",
     "static/media/WUUT.gif": "/Conversation-RealTime-ChatApp/static/media/WUUT.71fe00b6c932ab91be55.gif",
     "static/media/robot.gif": "/Conversation-RealTime-ChatApp/static/media/robot.0617a41936621e9697cd.gif",
@@ -11,11 +11,11 @@
     "static/media/4GZA.gif": "/Conversation-RealTime-ChatApp/static/media/4GZA.7dc3076c1bab59485f7e.gif",
     "index.html": "/Conversation-RealTime-ChatApp/index.html",
     "main.073c9b0a.css.map": "/Conversation-RealTime-ChatApp/static/css/main.073c9b0a.css.map",
-    "main.b73c0dfb.js.map": "/Conversation-RealTime-ChatApp/static/js/main.b73c0dfb.js.map",
+    "main.c3863590.js.map": "/Conversation-RealTime-ChatApp/static/js/main.c3863590.js.map",
     "787.2ca72812.chunk.js.map": "/Conversation-RealTime-ChatApp/static/js/787.2ca72812.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.b73c0dfb.js"
+    "static/js/main.c3863590.js"
   ]
 }
