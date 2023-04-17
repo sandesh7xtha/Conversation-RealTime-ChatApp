@@ -11,11 +11,27 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route exact path="/LoginPage" element={<LoginPage />} />
-        <Route exact path="/createNewAccount" element={<NewAccount />} />
+        <Route
+          exact
+          path="/Conversation-RealTime-ChatApp/LoginPage"
+          element={<LoginPage />}
+        />
+        <Route
+          exact
+          path="/Conversation-RealTime-ChatApp/createNewAccount"
+          element={<NewAccount />}
+        />
         <Route element={<ProtectRoute />}>
-          <Route exact path="/ChatPage" element={<ChatPage />} />
-          <Route exact path="/" element={<ChatPage />} />
+          <Route
+            exact
+            path="/Conversation-RealTime-ChatApp/ChatPage"
+            element={<ChatPage />}
+          />
+          <Route
+            exact
+            path="/Conversation-RealTime-ChatApp"
+            element={<ChatPage />}
+          />
         </Route>
       </Routes>
     </BrowserRouter>
