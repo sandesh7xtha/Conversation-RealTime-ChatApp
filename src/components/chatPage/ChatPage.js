@@ -10,13 +10,26 @@ import Radium, { StyleRoot } from "radium";
 import { fadeIn } from "react-animations";
 
 export const ChatPage = () => {
-  const socket = useRef;
+  const socket = useRef();
   const [selectFriendList, setSelectFriendList] = useState(null);
   const LoggedINUser = localStorage.getItem("id");
 
+  // useEffect(() => {
+  //   if (LoggedINUser) {
+  //     socket.current = io.connect(host, { secure: true });
+  //     socket.current.emit("add-user", LoggedINUser);
+  //   }
+  // }, [LoggedINUser]);
+
   useEffect(() => {
     if (LoggedINUser) {
-      socket.current = io(host);
+      socket.current = io.connect(host, {
+        secure: true,
+        withCredentials: true,
+        extraHeaders: {
+          "my-custom-header": "abcd",
+        },
+      });
       socket.current.emit("add-user", LoggedINUser);
     }
   }, [LoggedINUser]);
