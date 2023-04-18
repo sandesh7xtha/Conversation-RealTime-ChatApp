@@ -23,13 +23,7 @@ export const ChatPage = () => {
 
   useEffect(() => {
     if (LoggedINUser) {
-      socket.current = io.connect(host, {
-        secure: true,
-        withCredentials: true,
-        extraHeaders: {
-          "my-custom-header": "abcd",
-        },
-      });
+      socket.current = io.connect(host);
       socket.current.emit("add-user", LoggedINUser);
     }
   }, [LoggedINUser]);
