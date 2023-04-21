@@ -37,4 +37,20 @@ const Container = styled.div`
   span {
     color: #4e0eff;
   }
+
+  @media (max-width: 768px) {
+    // img {
+    //   height: 12rem;
+    // }
+    h1 {
+      // font-size: 1.5rem;
+      text-align-last: center;
+      flex-direction: column;
+
+      display: flex;
+    }
+    h3 {
+      font-size: 0.9rem;
+    }
+  }
 `;

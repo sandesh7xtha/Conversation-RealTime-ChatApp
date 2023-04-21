@@ -4,15 +4,16 @@ import { ChatInput } from "./chatInput/ChatInput";
 import {
   recieveMessageRoute,
   sendMessageRoute,
-  config,
 } from "../../../utils/APIRoutes";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
+import { useDispatch } from "react-redux";
 
 export const ChatBox = ({ selectFriendList, LoggedINUser, socket }) => {
   const [messages, setMessages] = useState([]);
   const scrollRef = useRef();
   const [arrivalMessage, setArrivalMessage] = useState(null);
+  const dispatch = useDispatch();
 
   const getMessagesFromDB = () => {
     axios
@@ -70,6 +71,11 @@ export const ChatBox = ({ selectFriendList, LoggedINUser, socket }) => {
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
+  const handleMenuClick = () => {
+    dispatch({ type: "SCROLL_UP", scrollValue: true });
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   return (
     <ChatContainer>
       <Header>
@@ -83,7 +89,7 @@ export const ChatBox = ({ selectFriendList, LoggedINUser, socket }) => {
             .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
             .join(" ")}
         </UserName>
-        <MenuIcon>...</MenuIcon>
+        <MenuIcon onClick={handleMenuClick}>^^^</MenuIcon>
       </Header>
 
       <ChatMessages>

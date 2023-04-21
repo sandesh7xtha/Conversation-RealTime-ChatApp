@@ -13,8 +13,7 @@ export const ChatPage = (props) => {
   const socket = useRef();
   const [selectFriendList, setSelectFriendList] = useState(null);
   const LoggedINUser = localStorage.getItem("id");
-  // const Frnlist = props.Frnlist;
-  // console.log(Frnlist);
+
   const frnlist = useSelector((state) => state.frnlist);
 
   useEffect(() => {

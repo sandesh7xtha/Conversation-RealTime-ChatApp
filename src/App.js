@@ -5,7 +5,7 @@ import NewAccount from "./components/NewAccount/NewAccount";
 import { ChatPage } from "./components/chatPage/ChatPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ProtectRoute from "./utils/ProtectRoute";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Provider } from "react-redux";
 import store from "./redux/storeIndex";
 
