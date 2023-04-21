@@ -27,37 +27,48 @@ export const FriendList = ({ getValuefromFrnList }) => {
   };
 
   return (
-    <FriendListContainer>
+    <FriendListSection>
       <Header>Friends</Header>
-      {friendlist.map((friend) => (
-        <FriendListItem
-          // onClick={() => handleFriendClick([friend.email, friend.name])}
-          onClick={() =>
-            handleFriendClick({
-              email: friend.email,
-              name: friend.name,
-              id: friend._id,
-            })
-          }
-        >
-          <FriendProfilePic
-            src={"https://via.placeholder.com/50"}
-            alt="Friend profile picture"
-          />
-          <FriendName>{friend.name}</FriendName>
-        </FriendListItem>
-      ))}
-    </FriendListContainer>
+      <FriendListContener>
+        {friendlist.map((friend) => (
+          <FriendListItem
+            // onClick={() => handleFriendClick([friend.email, friend.name])}
+            onClick={() =>
+              handleFriendClick({
+                email: friend.email,
+                name: friend.name,
+                id: friend._id,
+              })
+            }
+          >
+            <FriendProfilePic
+              src={"https://via.placeholder.com/50"}
+              alt="Friend profile picture"
+            />
+            <FriendName>{friend.name}</FriendName>
+          </FriendListItem>
+        ))}
+      </FriendListContener>
+    </FriendListSection>
   );
 };
 
-const FriendListContainer = styled.div`
+const FriendListSection = styled.div`
   display: flex;
   flex-direction: column;
-  // width: 250px;
   background-color: #f3f3f3;
+  padding: 1rem;
+  height: 95vh;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 50vh;
+  }
+`;
+const FriendListContener = styled.div`
+  flex: 1;
+  overflow-y: scroll;
   padding: 20px;
-  height: 95%;
 `;
 const Header = styled.h2`
   margin: 0 0 10px;

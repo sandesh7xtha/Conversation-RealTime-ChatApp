@@ -8,22 +8,18 @@ import { io } from "socket.io-client";
 import Welcome from "./chatBox/Welcome";
 import Radium, { StyleRoot } from "radium";
 import { fadeIn } from "react-animations";
-
-export const ChatPage = () => {
+import { useSelector } from "react-redux";
+export const ChatPage = (props) => {
   const socket = useRef();
   const [selectFriendList, setSelectFriendList] = useState(null);
   const LoggedINUser = localStorage.getItem("id");
-
-  // useEffect(() => {
-  //   if (LoggedINUser) {
-  //     socket.current = io.connect(host, { secure: true });
-  //     socket.current.emit("add-user", LoggedINUser);
-  //   }
-  // }, [LoggedINUser]);
+  // const Frnlist = props.Frnlist;
+  // console.log(Frnlist);
+  const frnlist = useSelector((state) => state.frnlist);
 
   useEffect(() => {
     if (LoggedINUser) {
-      socket.current = io.connect(host);
+      socket.current = io.connect("http://localhost:3000");
       socket.current.emit("add-user", LoggedINUser);
     }
   }, [LoggedINUser]);
@@ -34,15 +30,21 @@ export const ChatPage = () => {
 
   const fadeInAnimation = {
     fadeIn: {
-      animation: "x 1s",
+      animation: "x 39s",
       animationName: Radium.keyframes(fadeIn, "fadeIn"),
     },
+  };
+
+  const friendListStyle = {
+    ...fadeInAnimation.fadeIn,
+    flex: frnlist ? "0 0 20%" : "1 1 0%",
+    display: frnlist ? "block" : "none",
   };
 
   return (
     <StyleRoot>
       <ChatPageContainer>
-        <FriendListContainer style={fadeInAnimation.fadeIn}>
+        <FriendListContainer style={friendListStyle}>
           <FriendList getValuefromFrnList={getValuefromFrnList} />
         </FriendListContainer>
         <ChatBoxContainer>
@@ -64,7 +66,7 @@ export const ChatPage = () => {
 const ChatPageContainer = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  // height: 100vh;
 
   @media (min-width: 768px) {
     flex-direction: row;
@@ -73,13 +75,32 @@ const ChatPageContainer = styled.div`
 
 const FriendListContainer = styled.div`
   display: none;
+  height: 90vh;
+  // @media (min-width: 768px) {
+  //   display: block;
+  //   width: 20%;
+  // }
 
-  @media (min-width: 768px) {
+  /* Mobile styles */
+  @media (max-width: 767px) {
     display: block;
-    width: 20%;
+    // position: fixed;
+    top: 4;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    z-index: 1;
+    overflow-y: scroll;
   }
 `;
 
 const ChatBoxContainer = styled.div`
   flex: 1;
+
+  /* Mobile styles */
+  @media (max-width: 767px) {
+    padding: 1rem;
+    height: 50%;
+    overflow-y: scroll;
+  }
 `;

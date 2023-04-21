@@ -1,5 +1,5 @@
 // export const host =
-//   "https://eea4-2400-1a00-bd20-6d7-98d5-a27c-7f59-a088.ngrok-free.app";
+//   "https://6027-2400-1a00-bd20-d12a-c97f-7b44-b9cb-351.ngrok-free.app";
 export const host = "http://localhost:5000";
 export const loginRoute = `${host}/api/auth/login`;
 export const registerRoute = `${host}/api/auth/signup`;
