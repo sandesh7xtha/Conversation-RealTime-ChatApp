@@ -8,11 +8,14 @@ import {
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import { useDispatch } from "react-redux";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 export const ChatBox = ({ selectFriendList, LoggedINUser, socket }) => {
   const [messages, setMessages] = useState([]);
   const scrollRef = useRef();
   const [arrivalMessage, setArrivalMessage] = useState(null);
+  const isMobile = useMediaQuery("(max-width:767px)");
   const dispatch = useDispatch();
 
   const getMessagesFromDB = () => {
@@ -76,6 +79,7 @@ export const ChatBox = ({ selectFriendList, LoggedINUser, socket }) => {
 
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
   return (
     <ChatContainer>
       <Header>
@@ -89,7 +93,7 @@ export const ChatBox = ({ selectFriendList, LoggedINUser, socket }) => {
             .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
             .join(" ")}
         </UserName>
-        <MenuIcon onClick={handleMenuClick}>^^^</MenuIcon>
+        {isMobile && <ArrowIcon onClick={handleMenuClick} />}
       </Header>
 
       <ChatMessages>
@@ -131,6 +135,7 @@ const Header = styled.div`
   padding: 20px;
   background-color: #212121;
   color: #fff;
+  justify-content: space-between;
 `;
 
 const ProfilePic = styled.img`
@@ -145,11 +150,24 @@ const UserName = styled.h2`
   margin: 0;
 `;
 
-const MenuIcon = styled.div`
-  margin-left: auto;
-  font-size: 28px;
+const ArrowIcon = styled(KeyboardArrowUpIcon)`
+  font-size: 40px;
+  color: #212121;
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
 `;
 
+// const ArrowIcon = styled.div`
+//   width: 0;
+//   height: 0;
+//   color: red;
+//   border-left: 20px solid transparent;
+//   border-right: 20px solid transparent;
+//   border-bottom: 20px solid #fff;
+//   cursor: pointer;
+// `;
 const ChatMessages = styled.div`
   flex: 1;
   overflow-y: scroll;

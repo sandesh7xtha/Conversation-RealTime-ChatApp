@@ -5,6 +5,7 @@ import * as n from "./Navbar.css";
 import { Link, useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import { useDispatch } from "react-redux";
+import Diversity2Icon from "@mui/icons-material/Diversity2";
 
 export const Navbar = () => {
   const navigate = useNavigate();
@@ -32,7 +33,7 @@ export const Navbar = () => {
       <n.Main>
         <n.Root>
           <n.NavMenu>
-            <Button
+            {/* <Button
               style={{
                 borderColor: "white",
                 borderWidth: "0.1rem",
@@ -53,7 +54,20 @@ export const Navbar = () => {
               }}
             >
               lll
-            </Button>
+            </Button> */}
+            <Diversity2Icon
+              style={{
+                borderColor: "white",
+                borderWidth: "0.1rem",
+                borderRadius: "0.4rem",
+                borderStyle: "solid",
+                color: "white",
+                transition: "background-color 0.3s",
+                backgroundColor: "transparent",
+                marginRight: "1rem",
+              }}
+              onClick={closeOpenlist}
+            />
             &nbsp;
             <Link style={{ textDecoration: "none" }} to="/">
               <p>Conversation</p>
